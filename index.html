@@ -35,12 +35,14 @@
     #loading p { margin: 0; opacity: .7; font-size: 14px; }
 
     #fullscreen {
-      position: absolute; top: max(12px, env(safe-area-inset-top)); right: max(12px, env(safe-area-inset-right));
-      width: 44px; height: 44px; border: 0; border-radius: 10px; cursor: pointer;
-      background: rgba(255,255,255,.14); color: var(--fg); font-size: 22px; line-height: 44px;
+      /* no topo, ao centro: o HUD usa os cantos de cima e os controles de toque usam os de baixo */
+      position: absolute; top: max(10px, env(safe-area-inset-top)); left: 50%; transform: translateX(-50%);
+      width: 36px; height: 36px; border: 0; border-radius: 8px; cursor: pointer;
+      background: rgba(255,255,255,.12); color: var(--fg); font-size: 18px; line-height: 36px;
+      opacity: .45; transition: opacity .2s, background .2s;
       display: none;
     }
-    #fullscreen:hover { background: rgba(255,255,255,.25); }
+    #fullscreen:hover, #fullscreen:focus-visible { opacity: 1; background: rgba(255,255,255,.25); }
 
     /* aviso para girar o aparelho (só em telas de toque em pé) */
     #rotate {
